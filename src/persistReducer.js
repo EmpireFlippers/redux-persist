@@ -140,7 +140,7 @@ export default function persistReducer<State: Object, Action: Object>(
         _persist: { version, rehydrated: false },
       }
     } else if (action.type === PURGE) {
-      _purge = true
+//       _purge = true
       action.result(purgeStoredState(config))
       return {
         ...baseReducer(restState, action),
@@ -156,11 +156,11 @@ export default function persistReducer<State: Object, Action: Object>(
       _paused = true
     } else if (action.type === REHYDRATE) {
       // noop on restState if purging
-      if (_purge)
-        return {
-          ...restState,
-          _persist: { ..._persist, rehydrated: true },
-        }
+      //       if (_purge)
+      //         return {
+      //           ...restState,
+      //           _persist: { ..._persist, rehydrated: true },
+      //         }
 
       // @NOTE if key does not match, will continue to default else below
       if (action.key === config.key) {
